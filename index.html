@@ -1,39 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicaciones Web Front End</title>
+  <meta charset="UTF-8">
+  <title>Calculadora de Notaciones</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      background:rgb(0, 0, 0); 
+      padding:20px; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      color:#333;
+      text-align:center;
+    }
+    .card {
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      max-width: 500px;
+      width: 100%;
+      margin-top: 20px;
+    }
+    input, select, button { 
+      margin: 5px; 
+      padding: 10px; 
+      font-size: 16px;
+    }
+    button {
+      background: #007bff;
+      color:#fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background:#0056b3;
+    }
+    #resultado {
+      margin-top: 20px; 
+    }
+    .res-box {
+      background:#f9f9f9;
+      padding:15px;
+      border-left: 5px solid #007bff;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+    .res-box strong {
+      color:#007bff;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <form class="row justify-content-center">
-            <div class="col-md-5">
-                <label for="nombre">Nombre</label>
-                <input id="nombre" class="form-control mb-3" type="text">
-                <label for="semestre">Semestr</label>
-                <select class="form-control mb-3" id="semestre">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                </select>
-                <label for="carrera">Carrera</label>
-                <input id="carrera" class="form-control mb-3" type="text">
-                <label for="horas">Horas</label>
-                <input id="horas" class="form-control mb-3" type="text">
-                <button type="button" id="btn_agregar" class="btn btn-primary w-100">Añadir</button>
-            </div>
-            <div class="col-md-5">
-                <p id="contenido" class="lead"></p>
-            </div>
-        </form>
-    </div>  
-    <script src="./controller/index.js"></script>  
+  <h2>Calculadora y Conversor de Notaciones</h2>
+  
+  <div class="card">
+    <label for="tipo">Tipo de notación:</label><br>
+    <select id="tipo">
+      <option value="infija">Infija</option>
+      <option value="prefija">Prefija</option>
+      <option value="posfija">Posfija</option>
+    </select><br>
+
+    <input type="text" id="expresion" placeholder="Escribe la expresión" style="width:90%;">
+    <button onclick="calcular()">Calcular y Convertir</button>
+
+    <div id="resultado"></div>
+  </div>
+<script src="/bundle.js"></script>
+
 </body>
 </html>
+
